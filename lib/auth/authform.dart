@@ -1,4 +1,7 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -11,7 +14,7 @@ class AuthForm extends StatefulWidget {
 
 class _AuthFormState extends State<AuthForm> {
   final _formkey = GlobalKey<FormState>();
-  final FirebaseAuth _auth = FirebaseAuth.instance;
+  // final FirebaseAuth _auth = FirebaseAuth.instance;
 
   var _email = "";
   var _password = "";
@@ -76,7 +79,7 @@ class _AuthFormState extends State<AuthForm> {
                       decoration: InputDecoration(
                           border: OutlineInputBorder(
                               borderRadius: new BorderRadius.circular(10),
-                              borderSide: new BorderSide()),
+                              borderSide: const BorderSide()),
                           labelText: "Enter UserName",
                           labelStyle: GoogleFonts.roboto()),
                     ),
@@ -98,7 +101,7 @@ class _AuthFormState extends State<AuthForm> {
                     decoration: InputDecoration(
                         border: OutlineInputBorder(
                             borderRadius: new BorderRadius.circular(10),
-                            borderSide: new BorderSide()),
+                            borderSide: const BorderSide()),
                         labelText: "Enter Email",
                         labelStyle: GoogleFonts.roboto()),
                   ),
@@ -121,7 +124,7 @@ class _AuthFormState extends State<AuthForm> {
                     decoration: InputDecoration(
                         border: OutlineInputBorder(
                             borderRadius: new BorderRadius.circular(10),
-                            borderSide: new BorderSide()),
+                            borderSide: const BorderSide()),
                         labelText: "Enter Password",
                         labelStyle: GoogleFonts.roboto()),
                   ),

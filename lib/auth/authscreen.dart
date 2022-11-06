@@ -8,7 +8,7 @@ class AuthScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("ToDo")),
-      body: AuthScreen(),
+      body: AuthForm(),
     );
   }
 }

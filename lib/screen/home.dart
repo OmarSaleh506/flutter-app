@@ -1,7 +1,11 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:todo/screen/add_task.dart';
-import '../moodels/task.dart';
+import '../controller/task_controller.dart';
+import '../models/task.dart';
 import '../widgets/tasks_list.dart';
+import 'package:get/get.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -9,10 +13,12 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  List<Task> tasks = [];
+  // List<Task> tasks = [];
 
   @override
   Widget build(BuildContext context) {
+    final TaskController _taskController = Get.find<TaskController>();
+
     String? newTaskTitle;
     return Scaffold(
       appBar: AppBar(
@@ -23,16 +29,17 @@ class _HomeState extends State<Home> {
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
         color: Colors.grey,
-        child: TasksList(tasks),
+        child: TasksList(_taskController.myTask),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
+          
           Navigator.push(
             context,
             MaterialPageRoute(
               builder: (context) => AddTask((newTaskTitle) {
                 setState(() {
-                  tasks.add(Task(name: newTaskTitle));
+                  _taskController.myTask.add(Task(name: newTaskTitle));
                   Navigator.pop(context);
                 });
               }),

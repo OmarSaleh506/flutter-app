@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:todo/widgets/task_list.dart';
 
-import '../moodels/task.dart';
+import '../models/task.dart';
 
 class TasksList extends StatefulWidget {
   final List<Task> tasks;
